@@ -1,0 +1,32 @@
+[package]
+name = "pq-signature-cost"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+ml-dsa = "=0.1.1"
+slh-dsa = "=0.1.0"
+slh-signature = { package = "signature", version = "=2.3.0-pre.4" }
+rand = "0.8"
+sha3 = "0.10"
+qtv-crypto = { git = "https://github.com/Quantova/Q-Crypto", rev = "7d01a5a225d8902190ef0853702fc10e6f551d87" }
+
+[dev-dependencies]
+criterion = "=0.8.2"
+
+[[bench]]
+name = "costs"
+harness = false
+
+[profile.bench]
+lto = true
+codegen-units = 1
+
+[[bench]]
+name = "keccak"
+harness = false
+
+[[bench]]
+name = "fresh"
+harness = false
